@@ -13,5 +13,6 @@ active_need = active_df[['Id', 'ActivityDate', 'TotalSteps', 'TotalDistance', 'T
 sw_merge = sleep_need.merge(weight_need, on='Id')
 swa_merge = sw_merge.merge(active_need, on='Id')
 
-#print(swa_merge.isnull().values.any()) #--> checking if there are any missing values in the dataframe - None
-# print(swa_merge.isnull().sum()) --> to count if there are any missing values in the dataframe. Answer is 0 - no missing values
+#swa_merge.to_csv('C:/Users/NL/Desktop/swe_name.csv') downloaded new csv file to ease the code for other tabs
+updt_swa = swa_merge.loc[(swa_merge == 0).any(axis=1)] # cleaning 0 from all rows
+updt_swa.to_csv('C:/Users/NL/Desktop/updt_swa.csv')
