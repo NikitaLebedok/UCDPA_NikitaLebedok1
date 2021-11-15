@@ -15,6 +15,7 @@ active_need = active_df[['Id', 'ActivityDate', 'TotalSteps','Calories']]
 # Merging tables together for further manipulation
 sw_merge = sleep_need.merge(weight_need, on='Id')
 swa_merge = sw_merge.merge(active_need, on='Id')
+
 #downloaded new csv file to ease the code for other tabs
 swa_merge.to_csv('C:/Users/NL/Desktop/swe_name.csv')
 
