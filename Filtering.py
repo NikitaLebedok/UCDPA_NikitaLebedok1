@@ -21,7 +21,7 @@ participants = pd.unique(swa_merge['Id']) # Checking the number of participants 
 # checking mean of all columns grouped by IDs
 calories_mean_of_6 = swa_merge.groupby('Id').mean()
 #print(calories_mean_of_6)
-swa_merge.replace(to_replace=['6962181067'], value='Mike')
+
 
 #changed_id_names = calories_mean_of_6[Id].replace({'1503960366': 'Mike','1927972279':'Lucas','4319703577':'Lucy','4558609924':'Brenda','5577150313':'Bart','6962181067':'Jen'}, inplace=True)
 print(swa_merge)

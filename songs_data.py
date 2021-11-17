@@ -1,5 +1,4 @@
-# https://www.kaggle.com/sashankpillai/spotify-top-200-charts-20202021
-# https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018
+# SOURCE:  https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018
 
 import pandas as pd
 
@@ -7,8 +6,6 @@ data2018 = pd.read_csv('top2018.csv')
 
 # checking for missing values in the provided dataset
 miss_values = data2018.isnull().sum()
-
-
 # print(miss_values)
 
 # function to convert milliseconds into minutes
