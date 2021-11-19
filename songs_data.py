@@ -27,7 +27,7 @@ data2018.rename(columns={'danceability': 'dance', 'id': 'song_id', 'name': 'song
 data2018['duration_mins'] = data2018.duration_ms.apply(mstohrs)
 #print(data2018.columns)
 
-#Creating simpe if else statement with newly converted NumPy arrays
+#Creating simple if else statement with newly converted NumPy arrays
 artists = np.array(data2018['artists'])
 song_length = np.array(data2018['duration_mins'].round())
 
@@ -96,7 +96,7 @@ arianag_avg = data2018[data2018['artists'] == 'Ariana Grande']['duration_mins'].
 
 
 # Question 4 : Who has more entries in the current dataset?
-#print(data2018['artists'].value_counts(sort=True))
+print(data2018['artists'].value_counts(sort=True))
 # Answer on Q4: Post Malone and XXXTENTACION both has 6 entries in the current dataset.
 
 

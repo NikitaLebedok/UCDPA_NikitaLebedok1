@@ -19,7 +19,7 @@ print(songs50.columns)
 
 # VISUAL #1
 # figure size
-#plt.figure(figsize=(17,6))
+#fig = plt.figure(figsize=(17,6))
 # setting the background style for the barplot
 #sns.set_style('whitegrid')
 # setting the color paletter for the barplot
@@ -29,11 +29,12 @@ print(songs50.columns)
 #ax.set_title('Level of Valence of top 10 songs in 2019', y=1)
 #ax.set(xlabel='Level of Valence', ylabel='Name of the Song')
 #plt.yticks(rotation=45)
-# plt.show()
+#fig.savefig("visual1.png")
+#plt.show()
 
 # VISUAL #2
 # figure size
-#plt.figure(figsize=(17,6))
+#fig2 = plt.figure(figsize=(17,6))
 # setting the background style for the barplot
 #sns.set_style('white')
 # setting the color paletter for the barplot
@@ -43,13 +44,14 @@ print(songs50.columns)
 #ax.set_title('Level of Popularity of top 10 songs in 2019', y=1.05)
 #ax.set(xlabel='Popularity', ylabel='Name of the Song')
 #plt.yticks(rotation=45)
+#fig2.savefig("visual2.png")
 # plt.show()
 
 
 # VISUAL #3
 
 # setting the figure size
-#sns.set(rc={'figure.figsize':(8,5)})
+#fig3 = plt.figure(figsize=(8,5))
 # setting the style
 #sns.set_style('darkgrid')
 #adding variables to the scatterplot
@@ -58,23 +60,25 @@ print(songs50.columns)
 #ax.set_title('Question: Is it easier to dance when the song is more energetic?', y=1.03)
 # setting the labels on both axis
 #ax.set(xlabel='How easy is it to Dance?', ylabel='Energy levels')
-# displaying the plot
+#fig3.savefig("visual3.png")
+#displaying the plot
 #plt.show()
 
 
 
 # 4th Visual
 # setting the figure size
-#sns.set(rc={'figure.figsize':(8,5)})
+fig4 = plt.figure(figsize=(8,5))
 # setting the style
-#sns.set_style('white')
-#sns.set_palette('bright')
+sns.set_style('white')
+sns.set_palette('bright')
 # adding variables to the scatterplot
-#ax = sns.scatterplot(x='Energy', y='Valence', data=songs50) #c=colors
+ax = sns.scatterplot(x='Energy', y='Valence', data=songs50) #c=colors
 # setting the title
-#ax.set_title('Question: Does Energy affect the positivity of the song?', y=1.03)
+ax.set_title('Question: Does Energy affect the positivity of the song?', y=1.03)
 # setting the labels on both axis
-#ax.set(xlabel='Energy levels', ylabel='Valence levels')
+ax.set(xlabel='Energy levels', ylabel='Valence levels')
+fig4.savefig("visual4.png")
 # displaying the plot
 #plt.show()
 
