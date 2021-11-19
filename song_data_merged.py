@@ -1,9 +1,11 @@
 # https://www.kaggle.com/sashankpillai/spotify-top-200-charts-20202021
 
+import pandas as pd
+
+
 #Split datafrem into 2 files, for future merge
 #data20_21.to_csv('C:/Users/NL/Desktop/split_songs202021.csv')
 
-import pandas as pd
 
 data20_21 = pd.read_csv('spotify_dataset.csv')
 updtdata20_21 = pd.read_csv('split_songs202021.csv')
