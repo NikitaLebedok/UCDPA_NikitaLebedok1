@@ -2,58 +2,90 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-#reading CSV file
-songs50 = pd.read_csv('top50.csv', encoding=('ISO-8859-1')) # TOP 50 SONGS in 2019
+# reading CSV file
+songs50 = pd.read_csv('top50.csv', encoding=('ISO-8859-1'))  # TOP 50 SONGS in 2019
 
-#removing unwanted column
+# removing unwanted column
 songs50.drop(['Unnamed: 0'], axis=1, inplace=True)
 
-#cleaner column names
+# cleaner column names
 songs50.rename(columns={'Track.Name': 'Track_name', 'Artist.Name': 'Artist', 'Beats.Per.Minute': 'BPM'
-                         , 'Loudness..dB..': 'Loudness(dB)', 'Valence.': 'Valence'
-                         , 'Length.': 'Length', 'Acousticness..': 'Acousticness', 'Speechiness.': 'Speechiness'}, inplace=True)
+    , 'Loudness..dB..': 'Loudness(dB)', 'Valence.': 'Valence'
+    , 'Length.': 'Length', 'Acousticness..': 'Acousticness', 'Speechiness.': 'Speechiness'},
+               inplace=True)
 
+# checking column names after renaming
 print(songs50.columns)
 
-# 1st VISUAL Popularity levels of top 10 artists in 2019
-
-#art_pop = songs50.groupby('Artist.Name').sum().sort_values('Popularity', ascending=False)
-#art_pop = songs50.reset_index()
-#print(art_pop)
-
-#plt.figure(figsize=(15, 5))
-#plt.title('Popularity of Top 10 Artists')
-#sns.barplot(x="Artist.Name", y="Popularity", data=songs50.head(10))
-#plt.show()
-
-# 2nd VISUAL
+# VISUAL #1
 # figure size
-#plt.figure(figsize=(15,8))
-
-# Simple scatterplot
-#ax = sns.barplot(x='Energy', y='Genre', data=songs50.head(10))
-
-#ax.set_title('Scatterplot of energy per genre')
-#plt.show()
-
-# 3rd VISUAL
-
-#figure size
-#plt.figure(figsize=(15,5))
-
-# BARPLOT to show how valence levels varies between artists
-ax = sns.barplot(x='Artist', y='Valence', data=songs50.head(10), ci=None)
-ax.set_title('Highest BMP per Genre', y=1.05)
-ax.set(xlabel='Name of the Artist', ylabel='Valence level')
-plt.xticks(rotation=90)
-plt.show()
-
-print(type(ax))
-#4th Visual
+#plt.figure(figsize=(17,6))
+# setting the background style for the barplot
 #sns.set_style('whitegrid')
-#sns.set_context('paper')
-#sns.catplot(x='Popularity', y='Track_name', data=songs50.head(10).sort_values('Popularity', ascending=False), kind='bar')
+# setting the color paletter for the barplot
+#sns.set_palette('cubehelix')
+# BARPLOT Valence levels of top 10 songs in 2019
+#ax = sns.barplot(x='Valence', y='Track_name', data=songs50.head(10).sort_values('Valence', ascending=False), ci=None)
+#ax.set_title('Level of Valence of top 10 songs in 2019', y=1)
+#ax.set(xlabel='Level of Valence', ylabel='Name of the Song')
+#plt.yticks(rotation=45)
+# plt.show()
+
+# VISUAL #2
+# figure size
+#plt.figure(figsize=(17,6))
+# setting the background style for the barplot
+#sns.set_style('white')
+# setting the color paletter for the barplot
+#sns.set_palette('deep')
+# BARPLOT Popularity of top 10 songs in 2019
+#ax = sns.barplot(x='Popularity', y='Track_name', data=songs50.head(10).sort_values('Popularity', ascending=False), ci=None)
+#ax.set_title('Level of Popularity of top 10 songs in 2019', y=1.05)
+#ax.set(xlabel='Popularity', ylabel='Name of the Song')
+#plt.yticks(rotation=45)
+# plt.show()
+
+
+# VISUAL #3
+
+# setting the figure size
+#sns.set(rc={'figure.figsize':(8,5)})
+# setting the style
+#sns.set_style('darkgrid')
+#adding variables to the scatterplot
+#ax = sns.scatterplot(x='Danceability', y='Energy', data=songs50)
+# setting the title
+#ax.set_title('Question: Is it easier to dance when the song is more energetic?', y=1.03)
+# setting the labels on both axis
+#ax.set(xlabel='How easy is it to Dance?', ylabel='Energy levels')
+# displaying the plot
+# plt.show()
+
+
+
+# 4th Visual
+# setting the figure size
+#sns.set(rc={'figure.figsize':(8,5)})
+# setting the style
+#sns.set_style('white')
+#sns.set_palette('bright')
+# adding variables to the scatterplot
+#ax = sns.scatterplot(x='Energy', y='Valence', data=songs50) #c=colors
+# setting the title
+#ax.set_title('Question: Does Energy affect the positivity of the song?', y=1.03)
+# setting the labels on both axis
+#ax.set(xlabel='Energy levels', ylabel='Valence levels')
+# displaying the plot
 #plt.show()
 
 
-#print(songs50.head(10).sort_values('Popularity', ascending=False))
+# 5th VISUAL
+# Catplot visualising count of all genres of top 50 songs in 2019
+#sns.set(rc={'figure.figsize':(8,5)})
+#sns.set_style('darkgrid')
+#sns.set_palette('bright')
+#g = sns.catplot(data=songs50 ,y="Genre", kind="count", edgecolor="1")
+#g.set(xlabel='Count of genres of 50 top songs in 2019', ylabel='Genres of top 50 songs in 2019')
+#plt.show()
+
+

@@ -4,8 +4,6 @@
 #data20_21.to_csv('C:/Users/NL/Desktop/split_songs202021.csv')
 
 import pandas as pd
-import seaborn as sns
-from matplotlib import pyplot as plt
 
 data20_21 = pd.read_csv('spotify_dataset.csv')
 updtdata20_21 = pd.read_csv('split_songs202021.csv')
@@ -26,3 +24,6 @@ updtdata20_21.drop(['Unnamed: 0', 'Number of Times Charted','Duration (ms)','Hig
 #After merge
 songids_merged = data20_21.merge(updtdata20_21, on='Song ID', suffixes=('_O','_N')) # # 1726, 14
 print(songids_merged.shape)
+
+miss_values = songids_merged.isnull().sum()
+print(miss_values)
