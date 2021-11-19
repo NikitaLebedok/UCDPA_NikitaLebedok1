@@ -59,7 +59,7 @@ print(songs50.columns)
 # setting the labels on both axis
 #ax.set(xlabel='How easy is it to Dance?', ylabel='Energy levels')
 # displaying the plot
-# plt.show()
+#plt.show()
 
 
 
